@@ -8,7 +8,7 @@ Write-Host "Current script directory is $ScriptDir"
 
 #Source folder
 $SourceFolder = "$ScriptDir\downloadz\"
-
+mkdir $SourceFolder
 
 #Create new Powershell object
 $KBArrayListDL = New-Object -TypeName System.Collections.ArrayList 
@@ -73,14 +73,13 @@ foreach ($link in $KBArrayListDL){
 $KBArrayList = New-Object -TypeName System.Collections.ArrayList 
 
 #Mofify KB article list
-# not found ,"KB3037623"
-# info 3173729 = "KB3173424","KB3173729"
+# not found ,"KB3037623"    # info 3173729 = "KB3173424","KB3173729"
 $KBArrayList.AddRange(@( "KB2894856","KB2977765","KB2978041","KB2978126","KB3008242","KB3023266","KB3031044","KB3000483","KB3042085","KB3045999","KB3045685","KB3037579","KB3032663","KB3023222","KB3059317","KB3044374","KB3046017","KB3071756","KB3082089","KB3084135","KB3074228","KB3074548","KB3077715","KB3081320","KB3102939","KB3092601","KB3098779","KB3097997","KB3126593","KB3126041","KB3126434","KB3126587","KB3139398","KB3139914","KB3146723","KB3159398","KB3161949","KB3173424","KB3173729","KB3175024","KB4054519","KB5001403","KB5005613")) 
 
-foreach ($KB in $KBArrayList) { 
+foreach ($KB in $KBArrayList) { Write-Output "Starting treatment for $KB"
     if (-not(Get-Hotfix -Id $KB)) { 
         Start-Process -FilePath "wusa.exe" -ArgumentList "$SourceFolder$KB.msu /quiet /norestart" -Wait } 
 } 
 
 
-Write-Output "Time taken: $((Get-Date).Subtract($start_time).Seconds) second(s)"
+Write-Output "Time taken: $((Get-Date).Subtract($start_time))"
