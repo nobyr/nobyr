@@ -2,7 +2,7 @@ $start_time = Get-Date
 
 
 # Determine script location for PowerShell
-$ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
+$ScriptDir = (Get-Location).Path
  
 Write-Host "Current script directory is $ScriptDir"
 
