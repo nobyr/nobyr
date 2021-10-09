@@ -62,7 +62,7 @@ $KBArrayListDL.AddRange(@(
 foreach ($link in $KBArrayListDL){ 
 
     $whatKB = $link.Split("-")
-    $KB = whatKB[1]
+    $KB = $whatKB[1]
 
     (New-Object System.Net.WebClient).DownloadFile($link, "$SourceFolder$KB.msu")
 
