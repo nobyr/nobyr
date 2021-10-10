@@ -38,6 +38,6 @@ $KBArrayList = New-Object -TypeName System.Collections.ArrayList
 $KBArrayList.AddRange(@( "KB3013769","KB3063843","KB3094486","KB3147071","KB3115224","KB3123245","KB3179574")) 
 
 foreach ($KB in $KBArrayList) { Write-Output "Starting treatment for $KB"
-    if (-not(Get-Hotfix -Id $KB)) { 
+    if (-not(Get-Hotfix -Id $KB -ea Ignore)) { 
         Start-Process -FilePath "wusa.exe" -ArgumentList "$SourceFolder$KB.msu /quiet /norestart" -Wait } 
 }
