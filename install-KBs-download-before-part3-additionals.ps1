@@ -1,8 +1,5 @@
-$start_time = Get-Date
-
-
 # Determine script location for PowerShell
-$ScriptDir = (Get-Location).Path
+$ScriptDir = C:\scripto
  
 Write-Host "Current script directory is $ScriptDir"
 
@@ -74,7 +71,4 @@ $KBArrayList.AddRange(@( "KB4486105","KB4033428","KB3179574","KB3172614","KB3134
 foreach ($KB in $KBArrayList) { Write-Output "Starting treatment for $KB"
     if (-not(Get-Hotfix -Id $KB)) { 
         Start-Process -FilePath "wusa.exe" -ArgumentList "$SourceFolder$KB.msu /quiet /norestart" -Wait } 
-} 
-
-
-Write-Output "Time taken: $((Get-Date).Subtract($start_time))"
+}
