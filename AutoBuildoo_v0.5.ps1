@@ -74,35 +74,35 @@ switch ($bootcount) {
 
 		PowerShell $part1            
 
-        Restart-Computer
+        Restart-Computer -Force
         ##################################################
     }
     
     2 {
 		PowerShell $part2
 
-        Restart-Computer
+        Restart-Computer -Force
         ##################################################
     }
     
     3 {
  		PowerShell $part3
         
-        Restart-Computer
+        Restart-Computer -Force
         ##################################################
     }
     
     4 {
 		PowerShell $part4
         
-        Restart-Computer
+        Restart-Computer -Force
         ##################################################
     }
     
     5 {
 		PowerShell $part5
         
-        Restart-Computer
+        Restart-Computer -Force
         ##################################################
     }
     
