@@ -1,5 +1,5 @@
 # Determine script location for PowerShell
-$ScriptDir = C:\scripto
+$ScriptDir = "C:\scripto"
 
 Write-Host "Current script directory is $ScriptDir"
 
