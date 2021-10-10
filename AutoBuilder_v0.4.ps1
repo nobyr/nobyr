@@ -108,7 +108,7 @@ function setStage(){
 
 	$args = $taskArguments
 	if($args -notlike "*-taskStage*") {
-		$args = += " -taskStage 0"
+		$args = " -taskStage 0"
 	}
 
 	#register a new task if it doesn't exist
