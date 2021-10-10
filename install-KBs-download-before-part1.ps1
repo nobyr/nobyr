@@ -1,13 +1,10 @@
-$start_time = Get-Date
-
-
 # Determine script location for PowerShell
-$ScriptDir = (Get-Location).Path
+$ScriptDir = C:\scripto
  
 Write-Host "Current script directory is $ScriptDir"
 
 #Source folder
-$SourceFolder = "$ScriptDir\downloadz\"
+$SourceFolder = "$ScriptDir\downloadz-part1\"
 mkdir $SourceFolder
 
 #Create new Powershell object
@@ -79,7 +76,4 @@ $KBArrayList.AddRange(@( "KB2894856","KB2977765","KB2978041","KB2978126","KB3008
 foreach ($KB in $KBArrayList) { Write-Output "Starting treatment for $KB"
     if (-not(Get-Hotfix -Id $KB)) { 
         Start-Process -FilePath "wusa.exe" -ArgumentList "$SourceFolder$KB.msu /quiet /norestart" -Wait } 
-} 
-
-
-Write-Output "Time taken: $((Get-Date).Subtract($start_time))"
+}
