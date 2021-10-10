@@ -32,7 +32,7 @@ foreach ($link in $KBArrayListDL){
 $KBArrayList = New-Object -TypeName System.Collections.ArrayList 
 
 #Mofify KB article list
-# not found ,"KB3037623"
+# not found 
 $KBArrayList.AddRange(@( "KB2919355","KB2967917","KB3000850","KB3042058","KB4535680")) 
 
 foreach ($KB in $KBArrayList) { Write-Output "Starting treatment for $KB"
