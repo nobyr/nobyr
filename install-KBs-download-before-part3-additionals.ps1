@@ -48,7 +48,6 @@ $KBArrayListDL.AddRange(@(
     "http://download.windowsupdate.com/d/msdownload/update/software/updt/2015/04/windows8.1-kb3054169-x64_0c13f211ca4f9c160793b35ce12c347031fbf18f.msu",
     "http://download.windowsupdate.com/d/msdownload/update/software/updt/2015/03/windows8.1-kb3012702-x64_082e460ce711abe34a624c1bdb083c2827eef524.msu",
     "http://download.windowsupdate.com/c/msdownload/update/software/updt/2014/07/windows8.1-kb2938066-x64_902cc8c11e361ae6513cabd156ad74ab395db377.msu",
-    "http://download.windowsupdate.com/d/msdownload/update/software/updt/2014/11/windows8.1-kb3013769-x64_333fd115b90e8ad6d8111723ac03aebd8a9d91fb.msu",
     "http://download.windowsupdate.com/d/msdownload/update/software/updt/2015/06/windows8.1-kb3063843-x64_57199ff97cd3ff29fc3cfe398effed9d32b992b5.msu"))
 
 foreach ($link in $KBArrayListDL){ 
@@ -66,7 +65,7 @@ $KBArrayList = New-Object -TypeName System.Collections.ArrayList
 
 #Mofify KB article list
 # not found 
-$KBArrayList.AddRange(@( "KB4486105","KB4033428","KB3179574","KB3172614","KB3134179","KB3103709","KB3145432","KB3149157","KB3145384","KB3146751","KB3103616","KB3146604","KB312245","KB3100473","KB3140234","KB3133690","KB3115224","KB3109976","KB3140219","KB3137728","KB3147071","KB3121261","KB3102429","KB3103696","KB3078405","B3094486","KB3084905","KB3080149","KB3060681","KB3054203","KB3060793","KB3013791","KB3054464","KB3054169","KB3012702","KB2938066","KB3013769","KB306383")) 
+$KBArrayList.AddRange(@( "KB4486105","KB4033428","KB3179574","KB3172614","KB3134179","KB3103709","KB3145432","KB3149157","KB3145384","KB3146751","KB3103616","KB3146604","KB312245","KB3100473","KB3140234","KB3133690","KB3115224","KB3109976","KB3140219","KB3137728","KB3147071","KB3121261","KB3102429","KB3103696","KB3078405","B3094486","KB3084905","KB3080149","KB3060681","KB3054203","KB3060793","KB3013791","KB3054464","KB3054169","KB3012702","KB2938066","KB306383")) 
 
 foreach ($KB in $KBArrayList) { Write-Output "Starting treatment for $KB"
     if (-not(Get-Hotfix -Id $KB -ea Ignore)) { 

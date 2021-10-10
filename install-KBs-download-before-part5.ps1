@@ -12,7 +12,6 @@ $KBArrayListDL = New-Object -TypeName System.Collections.ArrayList
 
 #Download KB list
 $KBArrayListDL.AddRange(@( 
-    "http://download.windowsupdate.com/d/msdownload/update/software/updt/2014/11/windows8.1-kb3013769-x64_333fd115b90e8ad6d8111723ac03aebd8a9d91fb.msu",
     "http://download.windowsupdate.com/d/msdownload/update/software/updt/2015/06/windows8.1-kb3063843-x64_57199ff97cd3ff29fc3cfe398effed9d32b992b5.msu",
     "http://download.windowsupdate.com/d/msdownload/update/software/updt/2015/10/windows8.1-kb3094486-x64_8e0a16b668f275e088ad3508f4a7cfe76b0757ec.msu",
     "http://download.windowsupdate.com/c/msdownload/update/software/updt/2016/03/windows8.1-kb3147071-x64_1c0f181c6c3b716477b00d6946f750b81fd0766c.msu",
@@ -35,7 +34,7 @@ $KBArrayList = New-Object -TypeName System.Collections.ArrayList
 
 #Mofify KB article list
 # not found 
-$KBArrayList.AddRange(@( "KB3013769","KB3063843","KB3094486","KB3147071","KB3115224","KB3123245","KB3179574")) 
+$KBArrayList.AddRange(@( "KB3063843","KB3094486","KB3147071","KB3115224","KB3123245","KB3179574")) 
 
 foreach ($KB in $KBArrayList) { Write-Output "Starting treatment for $KB"
     if (-not(Get-Hotfix -Id $KB -ea Ignore)) { 
