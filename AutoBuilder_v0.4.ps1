@@ -24,7 +24,7 @@
 
 [cmdletbinding()]
 Param(
-	[Parameter(Mandatory=$true)][ValidateNotNullOrEmpty()]
+	[Parameter(Mandatory=$false)]
 	[string]$ExampleVariable = $( Read-Host "Enter a value for ExampleVariable" ), #This is an example input parameter for the script
 	#ADD ADDITIONAL ARGUMENTS HERE IF NEEDED
 	[Parameter(Mandatory=$False)]
