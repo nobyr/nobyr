@@ -23,14 +23,14 @@ $dropperscript = 'C:\tempo\dropper.ps1'
 
 # Bootstrap Batch
 if (!(Get-Item $bootbatch -ea ignore)) {
-    "powershell -c $dropperscript`npause" | Out-File $bootbatch -Encoding 'OEM'
+	"powershell -c $dropperscript`npause" | Out-File $bootbatch -Encoding 'OEM'
 }
 
 # Boot Count
 if (Get-Item $countfile -ea ignore) {
-    [int]$bootcount = Get-Content $countfile
-    if ($bootcount -match "^\d{1,2}$") { ([int]$bootcount) ++ }
-    else { $bootcount = 1 }
+	[int]$bootcount = Get-Content $countfile
+	if ($bootcount -match "^\d{1,2}$") { ([int]$bootcount) ++ }
+	else { $bootcount = 1 }
 }
 else { $bootcount = 1 }
 $bootcount | Out-File $countfile
@@ -60,9 +60,9 @@ $part4 = "$cscrito\$($scriptos[3])"
 $part5 = "$cscrito\$($scriptos[4])"
 
 switch ($bootcount) {
-    
-    1 {
-        # Fill in anything needed on first run
+
+	1 {
+		# Fill in anything needed on first run
 
 		$start_time = Get-Date
 		[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
@@ -73,46 +73,46 @@ switch ($bootcount) {
 			$wc.DownloadFile($url, $output)
 		}
 
-		PowerShell $part1            
+		PowerShell $part1
 
-        Restart-Computer -Force
-        ##################################################
-    }
-    
-    2 {
+		Restart-Computer -Force
+		##################################################
+	}
+
+	2 {
 		PowerShell $part2
 
-        Restart-Computer -Force
-        ##################################################
-    }
-    
-    3 {
- 		PowerShell $part3
-        
-        Restart-Computer -Force
-        ##################################################
-    }
-    
-    4 {
+		Restart-Computer -Force
+		##################################################
+	}
+
+	3 {
+		PowerShell $part3
+		
+		Restart-Computer -Force
+		##################################################
+	}
+
+	4 {
 		PowerShell $part4
-        
-        Restart-Computer -Force
-        ##################################################
-    }
-    
-    5 {
+	
+		Restart-Computer -Force
+		##################################################
+	}
+
+	5 {
 		PowerShell $part5
-        
-        Restart-Computer -Force
-        ##################################################
-    }
-    
-    default {
-        # Dropper is complete; clean up
-        rm $countfile
-        rm $bootbatch
-        rm $dropperscript
-    }
+	
+		Restart-Computer -Force
+		##################################################
+	}
+
+	default {
+		# Dropper is complete; clean up
+		rm $countfile
+		rm $bootbatch
+		rm $dropperscript
+	}
 }
 '@
 
