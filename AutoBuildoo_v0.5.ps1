@@ -15,7 +15,9 @@ $dropper = @'
 # Static Variables
 $countfile = 'C:\tempo\bootcount.txt'
 #$bootbatch = 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\dropper.bat'
- $bootbatch = "C:\Users\Administrateur.WIN-0R0LFKPGGL8\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\dropper.bat"
+#$bootbatch = "C:\Users\Administrateur.WIN-0R0LFKPGGL8\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\dropper.bat"
+#below is useless if we use the scheduletask at boot (only useful on a GUI server)
+ $bootbatch = "C:\tempo\dropper.bat"
 $dropperscript = 'C:\tempo\dropper.ps1'
 
 #################
